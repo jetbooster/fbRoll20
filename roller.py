@@ -37,6 +37,3 @@ def buildResponse(text):
   result = roll(parsedRoll)
   responseContent += f"Rolled: {result['rolledDie']}\nTotal (including modifier):{result['total']}"
   return responseContent
-
-x = buildResponse("blah blah\n !!roll 4d20")
-print(x)
