@@ -2,8 +2,8 @@ import re
 from random import randint
 
 def parse(text):
-  trimSummon = text.replace('!!roll','').strip()
-  matchResult = re.match(r"(?P<dice>\d{0,2}d\d{0,3}\s?([+-]\s?\d{0,2})?).*", trimSummon)
+  trimSummon = text.replace('!!roll','').replace('\n','').strip()
+  matchResult = re.match(r".*(?P<dice>\d{0,2}d\d{0,3}\s?([+-]\s?\d{0,2})?).*", trimSummon)
   parsedSection = matchResult.group('dice')
   [numDie, rest] = [elem.strip() for elem in parsedSection.split('d')]
   if numDie == '':

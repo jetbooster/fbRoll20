@@ -11,9 +11,10 @@ class Roll20Bot(Client):
     super().__init__(username,password)
 
   def onMessage(self, author_id, message_object, thread_id, thread_type, **kwargs):
-    if '!!roll' in message_object.text.lower():
-      responseContent = buildResponse(message_object.text)
-      self.send(message=Message(text=responseContent),thread_id=thread_id, thread_type=thread_type)
+    if message_object.text:
+      if '!!roll' in message_object.text.lower():
+        responseContent = buildResponse(message_object.text)
+        self.send(message=Message(text=responseContent),thread_id=thread_id, thread_type=thread_type)
 
 if __name__ == "__main__":
     YOUR_FACEBOOK_USERNAME = ""
